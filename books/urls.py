@@ -1,5 +1,10 @@
-from django.urls import path
+from rest_framework import routers
+from .views import *
 
-urlpatterns = [
-    # path('admin/', admin.site.urls),
-]
+router = routers.DefaultRouter()
+
+router.register('', BookViewSet, basename = 'books')
+router.register('authors', AuthorViewSet, basename = 'authors')
+
+
+urlpatterns = router.urls
